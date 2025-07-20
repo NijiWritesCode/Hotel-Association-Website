@@ -1,0 +1,428 @@
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f5f5f5;
+    --accent-color: #007bff;
+    --text-color: #333;
+    --light-text: #fff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: var(--secondary-color);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%; /* Prevent Android font scaling issues */
+}
+
+.header {
+    width: 100%;
+    height: 90vh;
+    background-image: url('../../assets/background_2.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    max-width: 1400px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.85);
+    padding: clamp(0.75rem, 3vw, 1rem) clamp(1rem, 4vw, 2rem);
+    z-index: 1000;
+    box-shadow: var(--shadow); /* Replaced backdrop-filter for Android compatibility */
+    transition: var(--transition);
+}
+
+.header-text {
+    padding: clamp(1rem, 5vw, 2rem) clamp(2rem, 8vw, 4rem);
+    color: var(--light-text);
+    animation: slideUp 1s ease-out;
+}
+
+.header-text h1 {
+    font-size: clamp(2.8rem, 8vw, 5.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.header-text h4 {
+    font-size: clamp(1.2rem, 4vw, 2.5rem);
+    font-style: italic;
+    font-weight: 400;
+    margin-top: 1rem;
+    opacity: 0.9;
+}
+
+.main-content {
+    margin-top: 3rem;
+    padding: 0 clamp(0.5rem, 2vw, 1rem);
+}
+
+.description {
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.3s forwards;
+    padding: clamp(1rem, 4vw, 2rem);
+}
+
+.description h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+}
+
+.description p {
+    font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+    max-width: 1100px;
+    margin: 0 auto 3rem;
+    font-family: 'Open Sans', 'Lucida Sans', Geneva, Verdana, sans-serif;
+    color: var(--text-color);
+}
+
+.events {
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.6s forwards;
+    padding: clamp(2rem, 6vw, 4rem) clamp(0.5rem, 2vw, 1rem);
+    background: #fff;
+}
+
+.event {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1rem, 3vw, 1.5rem);
+    max-width: 1400px;
+    margin: 3rem auto;
+    justify-items: center; /* Center items horizontally */
+}
+
+.event-card {
+    background: var(--primary-color);
+    color: var(--light-text);
+    border-radius: 1rem;
+    overflow: hidden;
+    height: clamp(180px, 50vw, 240px);
+    position: relative;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+    cursor: pointer;
+    touch-action: manipulation; /* Improve touch on Android */
+}
+
+.event-card:hover,
+.event-card:active {
+    transform: translateY(-12px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.event-card .text {
+    position: absolute;
+    bottom: -70px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    padding: clamp(0.75rem, 2vw, 1rem);
+    background: rgba(0, 0, 0, 0.7);
+    transition: var(--transition);
+}
+
+.event-card:hover .text,
+.event-card:active .text {
+    bottom: 0;
+    opacity: 1;
+}
+
+.benefit {
+    text-align: left;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.9s forwards;
+    padding: clamp(2rem, 6vw, 4rem) clamp(0.5rem, 2vw, 1rem);
+    background: var(--secondary-color);
+    margin-bottom: clamp(50px, 10vw, 100px);
+    margin-bottom: 30px;
+}
+
+.benefit h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    margin-bottom: 2rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.benefits {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1rem, 3vw, 1.5rem);
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-items: center; /* Center items horizontally */
+}
+
+.b_card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: clamp(1rem, 3vw, 1.5rem);
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+.b_card:hover,
+.b_card:active {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.leadership_team {
+    text-align: center;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 1.2s forwards;
+    padding: clamp(2rem, 6vw, 4rem) clamp(0.5rem, 2vw, 1rem);
+    background: #fff;
+}
+
+.leadership_team h2 {
+    font-size: clamp(1.5rem, 6vw, 2.5rem);
+    margin-bottom: 2rem;
+    font-weight: 600;
+}
+
+.l_info {
+    margin-top: clamp(30px, 8vw, 50px);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: clamp(1rem, 3vw, 1.5rem);
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-items: center; /* Center items horizontally */
+}
+
+.l_info .b_card {
+    transition: var(--transition);
+}
+
+.l_info .b_card:hover,
+.l_info .b_card:active {
+    transform: scale(1.03);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .header {
+        height: 80vh;
+    }
+
+    .header-text h1 {
+        font-size: clamp(1.8rem, 7vw, 2.5rem);
+    }
+
+    .header-text h4 {
+        font-size: clamp(0.9rem, 3.5vw, 1.25rem);
+    }
+
+    .description h2 {
+        font-size: clamp(1.4rem, 5.5vw, 2rem);
+    }
+
+    .description p {
+        font-size: clamp(0.85rem, 3.5vw, 1.1rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header {
+        height: 70vh;
+    }
+
+    .navbar {
+        padding: clamp(0.5rem, 2vw, 0.75rem) clamp(0.75rem, 3vw, 1rem);
+    }
+
+    .header-text {
+        padding: clamp(1rem, 4vw, 1.5rem) clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .description h2 {
+        font-size: clamp(1.3rem, 5vw, 1.75rem);
+    }
+
+    .description p {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+    }
+
+    .event-card {
+        height: clamp(180px, 45vw, 220px);
+    }
+
+    .event {
+        grid-template-columns: 1fr;
+    }
+
+    .benefits {
+        grid-template-columns: 1fr;
+    }
+
+    .l_info {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media screen and (max-width: 412px) {
+    .header {
+        height: 60vh;
+    }
+
+    .header-text {
+        padding: clamp(0.75rem, 3vw, 1rem);
+    }
+
+    .header-text h1 {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .header-text h4 {
+        font-size: clamp(0.8rem, 3vw, 1rem);
+    }
+
+    .description h2 {
+        font-size: clamp(1.2rem, 4.5vw, 1.5rem);
+    }
+
+    .description p {
+        font-size: clamp(0.75rem, 2.8vw, 0.9rem);
+    }
+
+    .events, .benefit, .leadership_team {
+        padding: clamp(1rem, 4vw, 2rem) clamp(0.5rem, 2vw, 0.75rem);
+    }
+
+    .event {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .event-card {
+        height: clamp(160px, 40vw, 200px);
+    }
+
+    .benefits {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .l_info {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .b_card {
+        padding: clamp(0.75rem, 2.5vw, 1rem);
+    }
+}
+
+@media screen and (max-width: 300px) {
+    .header {
+        height: 50vh;
+    }
+
+    .header-text {
+        padding: clamp(0.5rem, 2vw, 0.75rem);
+    }
+
+    .header-text h1 {
+        font-size: clamp(1.2rem, 5vw, 1.6rem);
+    }
+
+    .header-text h4 {
+        font-size: clamp(0.7rem, 2.5vw, 0.9rem);
+        margin-top: 0.5rem;
+    }
+
+    .navbar {
+        padding: clamp(0.4rem, 1.5vw, 0.6rem) clamp(0.5rem, 2vw, 0.75rem);
+    }
+
+    .description h2 {
+        font-size: clamp(1rem, 4vw, 1.3rem);
+        margin-bottom: 1rem;
+    }
+
+    .description p {
+        font-size: clamp(0.7rem, 2.5vw, 0.85rem);
+        margin-bottom: 2rem;
+    }
+
+    .events, .benefit, .leadership_team {
+        padding: clamp(0.75rem, 3vw, 1.5rem) clamp(0.4rem, 1.5vw, 0.6rem);
+    }
+
+    .event {
+        gap: 0.75rem;
+    }
+
+    .event-card {
+        height: clamp(140px, 35vw, 180px);
+    }
+
+    .event-card .text {
+        padding: clamp(0.5rem, 1.5vw, 0.75rem);
+        bottom: -60px;
+    }
+
+    .benefits {
+        gap: 0.75rem;
+    }
+
+    .l_info {
+        gap: 0.75rem;
+    }
+
+    .b_card {
+        padding: clamp(0.5rem, 2vw, 0.75rem);
+    }
+
+    .benefit h2, .leadership_team h2 {
+        font-size: clamp(1rem, 4vw, 1.3rem);
+        margin-bottom: 1.5rem;
+    }
+}

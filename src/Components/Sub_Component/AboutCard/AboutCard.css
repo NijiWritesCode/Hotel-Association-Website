@@ -1,0 +1,13 @@
+.about_card{
+    margin-top: 30px;
+}
+
+.about_card > h2{
+    font-size: 40px;
+    color: #333;
+}
+
+.about_card > p{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 5px;
+}

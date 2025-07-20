@@ -1,0 +1,9 @@
+.hard{
+    font-weight: bold;
+}
+
+.li {
+    text-align: left;
+    margin-bottom: 15px;
+    padding-inline: 10px;
+}

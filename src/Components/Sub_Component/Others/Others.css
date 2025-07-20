@@ -1,0 +1,14 @@
+.others{
+    text-align: left;
+}
+
+.others > h1{
+    color: #332;
+    font-size: 30px;
+}
+
+.others > p{
+    font-size: 1.1em;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-top: 15px;
+}

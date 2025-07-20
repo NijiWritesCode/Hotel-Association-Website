@@ -1,0 +1,23 @@
+.evCard{
+    display: flex;
+    flex-direction: column;
+    width: 300px;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px 0;
+    overflow: hidden;
+    margin-bottom: 15px;
+}
+
+.evCard > p{
+    padding: 15px;
+}
+
+.evCard > img{
+    object-fit: cover;
+}
+
+.evCard:hover{
+    transform: translateY(-5px);
+    transition: ease .5s all;
+}

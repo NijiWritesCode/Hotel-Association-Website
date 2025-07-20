@@ -1,0 +1,244 @@
+:root {
+    --primary-color: #1a1a1a;
+    --secondary-color: #f5f5f5;
+    --text-color: #333;
+    --light-text: #fff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s ease;
+}
+
+.leader{
+    margin-top: 50px;
+}
+
+.leader_body {
+    padding-top: 8rem;
+    width: 90%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding-bottom: 4rem;
+    background: var(--secondary-color);
+}
+
+.leader_body > h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 3rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out forwards;
+}
+
+.leader_body > p {
+    font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 1100px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.3s forwards;
+}
+
+.temp_h {
+    margin-top: 6rem;
+}
+
+.temp {
+    margin-bottom: 2.5rem;
+}
+
+.temp > h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.6s forwards;
+}
+
+.temp > p {
+    text-align: left;
+    font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    line-height: 1.6;
+    max-width: 1100px;
+    margin: 0 auto;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 0.9s forwards;
+}
+
+.function {
+    margin-top: 5rem;
+}
+
+.function > h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 1.2s forwards;
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    min-width: 280px;
+    height: auto;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.executives {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 1024px) {
+    .leader_body {
+        width: 95%;
+        padding-top: 6rem;
+    }
+
+    .leader_body > h2 {
+        font-size: 2rem;
+    }
+
+    .leader_body > p {
+        font-size: 1.1rem;
+    }
+
+    .temp > h2 {
+        font-size: 1.75rem;
+    }
+
+    .temp > p {
+        font-size: 1.1rem;
+    }
+
+    .function > h2 {
+        font-size: 1.75rem;
+    }
+
+    .cards, .executives {
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .leader_body {
+        padding-top: 5rem;
+        padding-bottom: 3rem;
+    }
+
+    .leader_body > h2 {
+        font-size: 1.75rem;
+        margin-bottom: 2rem;
+    }
+
+    .leader_body > p {
+        font-size: 1rem;
+    }
+
+    .temp_h {
+        margin-top: 4rem;
+    }
+
+    .temp > h2 {
+        font-size: 1.5rem;
+    }
+
+    .temp > p {
+        font-size: 1rem;
+    }
+
+    .function {
+        margin-top: 4rem;
+    }
+
+    .function > h2 {
+        font-size: 1.5rem;
+    }
+
+    .card {
+        min-width: 250px;
+        padding: 1.5rem;
+    }
+
+    .executives{
+        padding-left: 50px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .leader_body {
+        padding-top: 4rem;
+        padding-bottom: 2rem;
+    }
+
+    .leader_body > h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .leader_body > p {
+        font-size: 0.9rem;
+    }
+
+    .temp > h2 {
+        font-size: 1.25rem;
+    }
+
+    .temp > p {
+        font-size: 0.9rem;
+    }
+
+    .function > h2 {
+        font-size: 1.25rem;
+    }
+
+    .card {
+        min-width: 220px;
+        padding: 1rem;
+    }
+
+    .executives{
+        padding-left: 50px;
+    }
+}
