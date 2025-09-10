@@ -7,7 +7,7 @@
     --transition: all 0.3s ease;
 }
 
-.leader{
+.leader {
     margin-top: 50px;
 }
 
@@ -109,12 +109,80 @@
 }
 
 .executives {
+    max-width: 1400px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+    box-sizing: border-box;
+}
+
+.executives h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--text-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 1.2s forwards;
+}
+
+.l_info {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     max-width: 1400px;
     margin: 0 auto;
-    justify-content: center;
+}
+
+.leadership-card {
+    min-width: 280px;
+    height: auto;
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    transition: var(--transition);
+}
+
+.leadership-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.leadership-card-image {
+    width: 100%;
+    height: 120px; /* Matches EvCard and EventCard */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.leadership-card h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-color);
+    margin-bottom: 0.5rem;
+    font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.leadership-card p {
+    font-size: 1rem;
+    color: var(--text-color);
+    font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.loading, .error {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--text-color);
+    font-family: 'Open Sans', 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 1rem;
+    opacity: 0;
+    animation: fadeIn 1s ease-in-out 1.5s forwards;
+}
+
+.error {
+    color: #e53e3e; /* Consistent with --red-500 from EventManagement.css */
 }
 
 /* Animations */
@@ -156,7 +224,7 @@
         font-size: 1.75rem;
     }
 
-    .cards, .executives {
+    .cards, .executives, .l_info {
         grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     }
 }
@@ -196,13 +264,26 @@
         font-size: 1.5rem;
     }
 
-    .card {
+    .card, .leadership-card {
         min-width: 250px;
         padding: 1.5rem;
     }
 
-    .executives{
-        padding-left: 50px;
+    .leadership-card-image {
+        height: 100px;
+    }
+
+    .executives, .l_info {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        padding: 0 0.5rem;
+    }
+
+    .executives h2 {
+        font-size: 1.5rem;
+    }
+
+    .loading, .error {
+        font-size: 1rem;
     }
 }
 
@@ -233,12 +314,49 @@
         font-size: 1.25rem;
     }
 
-    .card {
+    .card, .leadership-card {
         min-width: 220px;
         padding: 1rem;
     }
 
-    .executives{
-        padding-left: 50px;
+    .leadership-card-image {
+        height: 80px;
+    }
+
+    .executives, .l_info {
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        padding: 0 0.5rem;
+    }
+
+    .executives h2 {
+        font-size: 1.25rem;
+    }
+
+    .loading, .error {
+        font-size: 0.9rem;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    .leader_body {
+        background: var(--primary-color);
+    }
+
+    .leader_body > h2, .temp > h2, .function > h2, .executives h2 {
+        color: var(--light-text);
+    }
+
+    .leader_body > p, .temp > p, .leadership-card h3, .leadership-card p, .loading {
+        color: var(--light-text);
+    }
+
+    .card, .leadership-card {
+        background: #2d2d2d; /* Slightly lighter than --primary-color for contrast */
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .error {
+        color: #f87171; /* Consistent with EventManagement.css red-400 */
     }
 }

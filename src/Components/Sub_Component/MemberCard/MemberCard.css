@@ -1,0 +1,72 @@
+.member-card {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.serial-number {
+    display: block;
+    font-size: 1rem;
+    font-weight: 700;
+    color: #007bff;
+    margin-bottom: 0.75rem;
+}
+
+.member-card h3 {
+    font-size: clamp(1.25rem, 3.5vw, 1.5rem);
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.75rem;
+}
+
+.member-card p {
+    font-size: clamp(0.95rem, 2.5vw, 1rem);
+    color: #333;
+    margin-bottom: 0.5rem;
+}
+
+.phone-link {
+    color: #007bff;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.phone-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .member-card {
+        padding: 1.25rem;
+    }
+
+    .serial-number {
+        font-size: 0.9rem;
+    }
+
+    .member-card h3 {
+        font-size: clamp(1rem, 3vw, 1.25rem);
+    }
+
+    .member-card p {
+        font-size: clamp(0.85rem, 2vw, 0.9rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .member-card {
+        padding: 1rem;
+    }
+
+    .serial-number {
+        font-size: 0.85rem;
+    }
+}

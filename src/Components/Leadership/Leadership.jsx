@@ -1,24 +1,41 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './Leadership.css'
 import Navbar from '../Sub_Component/Navbar/Navbar.jsx'
 import LiComponent from '../Sub_Component/LiComponent/LiComponent.jsx'
 import LeadershipCard from '../Sub_Component/LeaderCard/LeaderCard.jsx'
-import vc_1_Image from '../../assets/1st_Vice_Chairman.jpeg'
-import charirman from '../../assets/Chairman_1.jpeg'
-import vc_2_Image from '../../assets/2nd_Vice_Chairman.jpeg'
-import secetary from '../../assets/Secetary.jpeg'
-import pro from '../../assets/P_R_O.jpeg'
-import ex_Officio from '../../assets/Ex_Officio.jpeg'
-import Asst_financial from '../../assets/Asst_Financial.jpeg'
-import Asst_Gen_Secetary from '../../assets/Asst Gen Secretary.jpeg'
-import auditorGeneral from '../../assets/Auditor General.jpeg'
-import ChairmanTacticalcommittee from '../../assets/Chairman Tactical committee.jpeg'
-import ex_Officio2 from '../../assets/Ex officio 2.jpeg'
-import socialSecretary_1 from '../../assets/social secretary_1.jpeg'
 import Footer from '../Sub_Component/Footer/Footer.jsx'
 import { ScrollRestoration } from 'react-router-dom'
+import { collection, getDocs } from 'firebase/firestore';
+import { db } from '../../firebase_config.jsx'
+import AdOverlay from '../Sub_Component/Advert/Advert.jsx'
+
 
 const Leadership = () => {
+
+  const [executives, setExecutives] = useState([]);
+  const [loadingExecutives, setLoadingExecutives] = useState(true);
+  const [errorExecutives, setErrorExecutives] = useState(null);
+
+  const fetchExecutives = async () => {
+    try {
+      const collectionRef = collection(db, 'Executives');
+      const querySnapshot = await getDocs(collectionRef);
+      const executiveList = querySnapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      }));
+      setExecutives(executiveList);
+      setLoadingExecutives(false);
+    } catch (error) {
+      setErrorExecutives('Failed to fetch executives. Please try again later.');
+      setLoadingExecutives(false);
+    }
+  };
+
+  useEffect(() => {
+    fetchExecutives();
+  }, []);
+
   return (
 
     <>
@@ -103,19 +120,33 @@ const Leadership = () => {
         <h2>
           Executives
         </h2>
+        
         <div className="executives">
-          <LeadershipCard image={charirman} position={'Zonal Chairman'} name={'Adesina A Raphael'}/>
-          <LeadershipCard image={vc_1_Image} position={'1st Vice Chairman'} name={'SAMSON AGBOLADE ADESAKIN '}/>
-          <LeadershipCard image={vc_2_Image} position={'2nd vice Chairman'} name={'Olamiosegbe Olufemi'}/>
-          <LeadershipCard image={secetary} position={'General Secretary'} name={'Prince Olaloko Adeniran'}/>
-          <LeadershipCard image={pro} position={'P.R.O'} name={'Ajumobi B Samuel'}/>
-          <LeadershipCard image={Asst_financial} position={'Asst. Financial Secretary'} name={'Quadri Balogun'} />
-          <LeadershipCard image={ex_Officio} position={'Ex Officio'} name={'Odeyemi Mopelola Catherine'}/>
-          <LeadershipCard image={ex_Officio2} position={'Ex Officio 2'} name={'Chief Samuel Ajayi'}/>
-          <LeadershipCard image={Asst_Gen_Secetary} position={'Ass. General Secretary'} name={'Adeniji Abraham'}/>
-          <LeadershipCard image={auditorGeneral} position={'Auditor General'} name={'Adetonwa Abiodun Olusanya'}/>
-          <LeadershipCard image={socialSecretary_1} position={'Social Secretary'} name={'Akinyemi olanrewaju'}/>
-          <LeadershipCard image={ChairmanTacticalcommittee} position={'Chairman Tactical Committee'} name={'Alh Y Shitabey'}/>
+          {loadingExecutives ? (
+                        <div className="loading">Loading executives...</div>
+                      ) : errorExecutives ? (
+                        <div className="error">{errorExecutives}</div>
+                      ) : executives.length === 0 ? (
+                        <p>No executives found.</p>
+                      ) : (
+                        <div className="l_info">
+                          {executives
+                            .filter((executive) => executive.createdAt) // Only keep docs with createdAt
+                            .sort((a, b) => {
+                              const dateA = a.createdAt?.toDate ? a.createdAt.toDate() : new Date(0);
+                              const dateB = b.createdAt?.toDate ? b.createdAt.toDate() : new Date(0);
+                              return dateA - dateB; // Ascending order
+                            })
+                            .map((executive) => (
+                              <LeadershipCard
+                                key={executive.id}
+                                image={executive.profileImage || '/default-avatar.jpg'}
+                                position={executive.role || 'Executive'}
+                                name={executive.director || 'Unknown'}
+                              />
+                            ))}
+                        </div>
+                      )}
         </div>
         
       </div>
@@ -123,6 +154,8 @@ const Leadership = () => {
       <div className="end">
           <Footer />
       </div>
+
+      <AdOverlay />
 
     </div>
     <ScrollRestoration />

@@ -1,19 +1,17 @@
-import './LeaderCard.css'
+import './LeaderCard.css';
 
-const LeaderCard = ({image, position, name}) => {
+const Leadership = ({ image, position, name }) => {
   return (
-    <div className="leaderCard">
-        <img src={image} alt={`A Pic Of ${name}`} width={300} height={350}/>
-        <div className="text">
-            <h2>
-                {position}
-            </h2>
-            <p>
-                {name}
-            </p>
+    <div className="leader-card">
+      {image && (
+        <div className="image-container">
+          <img src={image} alt={`${name}'s profile`} className="leader-image" />
         </div>
+      )}
+      <h3>{name}</h3>
+      <p>{position}</p>
     </div>
-  )
-}
+  );
+};
 
-export default LeaderCard
+export default Leadership;

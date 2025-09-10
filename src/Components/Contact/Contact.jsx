@@ -4,6 +4,7 @@ import Navbar from '../Sub_Component/Navbar/Navbar.jsx';
 import Footer from '../Sub_Component/Footer/Footer.jsx';
 import { ScrollRestoration } from 'react-router-dom';
 import emailjs from '@emailjs/browser';
+import AdOverlay from '../Sub_Component/Advert/Advert.jsx';
 
 const Contact = () => {
   const form = useRef();
@@ -19,12 +20,12 @@ const Contact = () => {
       .then(
         () => {
           setStatus({ message: 'Message sent successfully!', type: 'success' });
-          form.current.reset(); // Clear form fields
-          setTimeout(() => setStatus({ message: '', type: '' }), 3000); // Clear status after 3 seconds
+          form.current.reset();
+          setTimeout(() => setStatus({ message: '', type: '' }), 3000);
         },
         (error) => {
           setStatus({ message: `Failed to send message: ${error.text}`, type: 'error' });
-          setTimeout(() => setStatus({ message: '', type: '' }), 3000); // Clear status after 3 seconds
+          setTimeout(() => setStatus({ message: '', type: '' }), 3000);
           form.current.reset();
         }
       );
@@ -105,9 +106,9 @@ const Contact = () => {
         <div className="call-info">
           <h2>Call Us</h2>
           <p>
-            Are you a hotel operator in Ojo LGA? Join us to benefit from a strong network, legal
+            Are you a hotel operator in Ado Odo Ota LGA? Join us to benefit from a strong network, legal
             backing, security partnerships, and business growth opportunities. Together, we raise the
-            bar for hospitality in Ojo. Do you need further information? Call: +2348037279143
+            bar for hospitality in Ado Odo Ota. Do you need further information? Call: +2348037279143
           </p>
         </div>
       </div>
@@ -115,6 +116,8 @@ const Contact = () => {
       <div className="foot">
         <Footer />
       </div>
+
+      <AdOverlay />
 
       <ScrollRestoration />
     </div>

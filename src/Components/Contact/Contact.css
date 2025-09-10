@@ -1,3 +1,4 @@
+/* Existing styles */
 .contact {
   display: flex;
   flex-direction: column;
@@ -7,9 +8,9 @@
   margin-top: 50px;
 }
 
-.nav {
+/* .nav {
   width: 100%;
-}
+} */
 
 .contact-card {
   max-width: 1200px;
@@ -170,7 +171,104 @@
     font-size: 0.875rem;
   }
 
-  .foot{
+  .foot {
     width: 105%;
   }
+}
+
+/* ================= AD OVERLAY ================= */
+.ad-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000; /* Increased to ensure it’s above navbar */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.ad-content {
+    background: #ffffff; /* Matches .contact-card background */
+    padding: clamp(1.5rem, 4vw, 2rem);
+    border-radius: 8px; /* Matches .contact-card border-radius */
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Matches .contact-card shadow */
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.ad-content h2 {
+    font-size: clamp(1.5rem, 5vw, 2rem);
+    color: #111827; /* Matches .contact-card > p color */
+    margin-bottom: 1rem;
+}
+
+.ad-content p {
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    color: #4b5563; /* Matches .call-info p color */
+    margin-bottom: 1.5rem;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: #374151; /* Matches .form-group label color */
+    cursor: pointer;
+    transition: color 0.2s ease; /* Matches .contact-form-button transition */
+}
+
+.close-button:hover {
+    color: #3b82f6; /* Matches --accent-color from .contact-form-button */
+}
+
+.cta-button {
+    background: #3b82f6; /* Matches .contact-form-button background */
+    color: #ffffff; /* Matches .contact-form-button color */
+    padding: 0.5rem 1.5rem;
+    border: none;
+    border-radius: 6px; /* Matches .contact-form-button border-radius */
+    cursor: pointer;
+    font-size: clamp(0.9rem, 3vw, 1rem);
+    transition: background-color 0.2s ease, transform 0.2s ease; /* Matches .contact-form-button transition */
+}
+
+.cta-button:hover {
+    background: #2563eb; /* Matches .contact-form-button:hover background */
+    transform: translateY(-2px);
+}
+
+@media (max-width: 480px) {
+    .ad-content {
+        padding: clamp(1rem, 3vw, 1.5rem);
+    }
+
+    .ad-content h2 {
+        font-size: clamp(1.2rem, 4vw, 1.5rem);
+    }
+
+    .ad-content p {
+        font-size: clamp(0.8rem, 2.5vw, 0.95rem);
+    }
+}
+
+/* Animations for consistency with Contact page */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
