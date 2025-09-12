@@ -11,9 +11,12 @@
 /* --- Navbar Container --- */
 header {
   width: 100%;
-  position: sticky;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 1000;
+  background: rgba(255, 255, 255, 0.95); /* keeps background visible while scrolling */
+  backdrop-filter: blur(10px); /* optional blur effect */
 }
 
 nav {
@@ -82,16 +85,17 @@ nav > .menu {
   display: none;
   cursor: pointer;
   color: var(--primary-color);
-  transition: var(--transition);
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
 nav > .menu:hover {
   color: var(--accent-color);
+  transform: scale(1.1);
 }
 
 /* --- Overlay Background --- */
 .over-lay {
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0);
   position: fixed;
   top: 0;
   left: 0;
@@ -99,27 +103,42 @@ nav > .menu:hover {
   height: 100vh;
   display: flex;
   justify-content: flex-end;
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  pointer-events: none;
+  transition: background 0.4s ease-in-out, opacity 0.4s ease-in-out;
   z-index: 2000;
+}
+
+.over-lay.active {
+  background: rgba(0, 0, 0, 0.6);
+  opacity: 1;
+  pointer-events: all;
 }
 
 /* --- Sidebar Menu --- */
 .sideBar {
   background: var(--secondary-color);
-  width: 250px;
-  max-width: 80%;
-  padding: 2rem 1.5rem;
+  width: 280px; /* wider default */
+  max-width: 85%;
+  padding: 2rem 2rem;
   position: fixed;
   top: 0;
   right: 0;
   height: 100vh;
-  transform: translateX(0);
-  transition: var(--transition);
+  transform: translateX(100%); /* hidden initially */
+  opacity: 0; /* start invisible */
+  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1),
+              opacity 1s ease-in-out,
+              box-shadow 1s ease-in-out;
   box-shadow: var(--shadow);
   z-index: 2001;
   display: flex;
   flex-direction: column;
+}
+
+.over-lay.active .sideBar {
+  transform: translateX(0);
+  opacity: 1;
 }
 
 .sideBar > .cancel-icon {
@@ -127,11 +146,12 @@ nav > .menu:hover {
   margin-bottom: 2rem;
   cursor: pointer;
   color: var(--primary-color);
-  transition: var(--transition);
+  transition: transform 1s ease, color 1s ease;
 }
 
 .sideBar > .cancel-icon:hover {
   color: var(--accent-color);
+  transform: rotate(90deg);
 }
 
 .sideBar > ul {
@@ -149,15 +169,33 @@ nav > .menu:hover {
   color: var(--primary-color);
   font-size: 1.1rem;
   font-weight: 500;
-  transition: var(--transition);
+  transition: var(--transition), transform 1s ease;
 }
 
 .sideBar > ul > li > .link:hover {
   color: var(--accent-color);
   padding-left: 8px;
+  transform: translateX(5px);
 }
 
-/* --- Responsive Styles --- */
+/* --- Tablet & Small Desktop --- */
+@media screen and (max-width: 1200px) {
+  nav {
+    width: 95%;
+    padding: 1rem 1.5rem;
+  }
+
+  nav > .nav_h1 {
+    font-size: 1.15rem;
+  }
+
+  .sideBar {
+    width: 260px;
+    padding: 2rem 1.8rem;
+  }
+}
+
+/* --- Tablets & Small Screens --- */
 @media screen and (max-width: 900px) {
   nav > ul {
     display: none;
@@ -169,18 +207,72 @@ nav > .menu:hover {
 
   nav > .nav_h1 {
     font-size: 1rem;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  nav {
-    padding: 0.75rem 1rem;
-    border-radius: 0;
-    margin: 0;
-    width: 100%;
+    flex: 1;
+    text-align: center;
   }
 
   .sideBar {
-    width: 200px;
+    width: 220px;
+    padding: 1.8rem 1.5rem;
+  }
+}
+
+/* --- Small Mobile Devices --- */
+@media screen and (max-width: 600px) {
+  nav {
+    padding: 0.75rem 1rem;
+    margin: 0;
+    border-radius: 0;
+    width: 100%;
+  }
+
+  nav > .nav_h1 {
+    font-size: 0.95rem;
+  }
+
+  .sideBar {
+    width: 250px; /* slightly larger for mobile usability */
+    padding: 1.5rem 1rem;
+  }
+
+  .sideBar > ul > li {
+    margin-bottom: 1rem;
+  }
+
+  .sideBar > ul > li > .link {
+    font-size: 0.95rem;
+  }
+}
+
+/* --- Extra Small Devices --- */
+@media screen and (max-width: 400px) {
+  nav > .nav_h1 {
+    font-size: 0.85rem;
+  }
+
+  .sideBar {
+    width: 180px;
+    padding: 1.2rem 0.8rem;
+  }
+
+  .sideBar > ul > li > .link {
+    font-size: 0.9rem;
+  }
+}
+
+/* --- Very Large Screens --- */
+@media screen and (min-width: 1600px) {
+  nav {
+    width: 90%;
+    padding: 1.2rem 2.5rem;
+  }
+
+  nav > .nav_h1 {
+    font-size: 1.5rem;
+  }
+
+  .sideBar {
+    width: 280px;
+    padding: 2.5rem 2rem;
   }
 }

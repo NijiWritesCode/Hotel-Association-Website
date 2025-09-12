@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 import { Link } from 'react-router-dom';
-import { Menu, X } from 'lucide-react'; // Corrected LucideMenu to Menu
+import { Menu, X } from 'lucide-react';
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -9,6 +9,17 @@ const Navbar = () => {
   const handleMenu = () => {
     setShowMenu(!showMenu);
   };
+
+  // Close sidebar if screen is resized to desktop
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth > 900) {
+        setShowMenu(false);
+      }
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
 
   const navLinks = [
     { to: '/', name: 'Home' },
@@ -36,21 +47,22 @@ const Navbar = () => {
       </nav>
 
       {showMenu && (
-        <div className="over-lay">
-          <div className="sideBar">
-            <X size={24} className="cancel-icon" onClick={handleMenu} />
-            <ul>
-              {navLinks.map((link, index) => (
-                <li key={index}>
-                  <Link to={link.to} className="link" onClick={handleMenu}>
-                    {link.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
+  <div className={`over-lay ${showMenu ? 'active' : ''}`} onClick={handleMenu}>
+    <div className="sideBar" onClick={(e) => e.stopPropagation()}>
+      <X size={24} className="cancel-icon" onClick={handleMenu} />
+      <ul>
+        {navLinks.map((link, index) => (
+          <li key={index}>
+            <Link to={link.to} className="link" onClick={handleMenu}>
+              {link.name}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
       )}
+
     </header>
   );
 };
