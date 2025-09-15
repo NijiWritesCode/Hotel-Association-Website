@@ -127,9 +127,7 @@ nav > .menu:hover {
   height: 100vh;
   transform: translateX(100%); /* hidden initially */
   opacity: 0; /* start invisible */
-  transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1),
-              opacity 1s ease-in-out,
-              box-shadow 1s ease-in-out;
+  transition: all ease-in-out .8s;
   box-shadow: var(--shadow);
   z-index: 2001;
   display: flex;

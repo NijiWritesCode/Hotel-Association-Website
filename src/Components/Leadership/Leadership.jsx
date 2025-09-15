@@ -52,7 +52,7 @@ const Leadership = () => {
         </h2>
 
         <p>
-          The leadership of the Ado Odo Ota Hoteliers' Association is structured into two main arms: the Board of Trustees (BOT) and the Executive Committee. Together, they work in collaboration to guide, manage, and implement the mission and vision of the association. Through a collaborative relationship, the BOT and the Executive Committee provide a strong, accountable, and transparent leadership structure for the Ado Odo Ota Hoteliers' Association, positioning it for growth and influence in the hospitality sector.
+          The leadership of the Ado Odo Ota Hoteliers' Association is structured into two main arms: the Elders Forum and the Executive Committee. Together, they work in collaboration to guide, manage, and implement the mission and vision of the association. Through a collaborative relationship, the Elders Forum and the Executive Committee provide a strong, accountable, and transparent leadership structure for the Ado Odo Ota Hoteliers' Association, positioning it for growth and influence in the hospitality sector.
         </p>
 
         <div className="temp_h">
@@ -60,11 +60,11 @@ const Leadership = () => {
           <div className="temp">
 
           <h2>
-            Board of Trustees (BOT)
+            Elders Forum
           </h2>
 
           <p>
-            The BOT serves as the highest advisory and oversight body within the association. They ensure continuity, provide strategic guidance, and offer checks and balances to the decisions made by the executive body. The BOT is also instrumental in resolving disputes and ensuring the association adheres to legal and ethical standards.
+            The Elders Forum serves as the highest advisory and oversight body within the association. They ensure continuity, provide strategic guidance, and offer checks and balances to the decisions made by the executive body. The Elders Forum is also instrumental in resolving disputes and ensuring the association adheres to legal and ethical standards.
           </p>
 
           </div>
@@ -92,24 +92,24 @@ const Leadership = () => {
           <div className="cards">
 
           <div className="card">
-            <LiComponent topic={'Advisory Role'} subtopic={'The BOT provides expert advice to the executive committee and the general membership, helping to guide the strategic direction of the association.'}/>
-            <LiComponent topic={'Policy Oversight'} subtopic={'The BOT is responsible for reviewing and approving policies and decisions made by the executive committee to ensure they align with the overall mission of the association.'}/>
-            <LiComponent topic={'Fund raising and Financial Support'} subtopic={'The BOT plays a key role in securing funding and resources for the association’s activities, projects, and initiatives.'}/>
-            <LiComponent topic={'Conflict Resolution'} subtopic={'When conflicts or disputes arise within the association, the BOT acts as an impartial body to mediate and resolve issues in a fair and constructive manner.'}/>
+            <LiComponent topic={'Advisory Role'} subtopic={'The Elders Forum provides expert advice to the executive committee and the general membership, helping to guide the strategic direction of the association.'}/>
+            <LiComponent topic={'Policy Oversight'} subtopic={'The Elders Forum is responsible for reviewing and approving policies and decisions made by the executive committee to ensure they align with the overall mission of the association.'}/>
+            <LiComponent topic={'Fund raising and Financial Support'} subtopic={'The Elders Forum plays a key role in securing funding and resources for the association’s activities, projects, and initiatives.'}/>
+            <LiComponent topic={'Conflict Resolution'} subtopic={'When conflicts or disputes arise within the association, the Elders Forum acts as an impartial body to mediate and resolve issues in a fair and constructive manner.'}/>
             <LiComponent topic={'Leadership and Administration'} subtopic={'The Executives are responsible for the day-to-day running of the association, ensuring all activities align with its goals and policies.'}/>
             <LiComponent topic={'Meeting Coordination'} subtopic={'They organize and preside over general meetings, executive meetings, and other official gatherings of the association.'}/>
-            <LiComponent topic={'Implementation Of Decision'} subtopic={'The Executives execute the resolutions passed by members and endorsed by the BOT.'}/>
+            <LiComponent topic={'Implementation Of Decision'} subtopic={'The Executives execute the resolutions passed by members and endorsed by the Elders Forum.'}/>
             <LiComponent topic={'Membership Engagement'} subtopic={'They facilitate communication with members, ensuring active participation and addressing concerns raised by hotel operators.'}/>
           </div>
 
           <div className="card">
-            <LiComponent topic={'Legal and Ethic Oversight'} subtopic={'The BOT ensures that the association operates within the confines of the law and adheres to high ethical standards in all of its activities.'} />
-            <LiComponent topic={'Long-term Planning'} subtopic={'The BOT helps with the long-term planning and sustainability of the association, ensuring its growth and impact in the future.'}/>
-            <LiComponent topic={'Representation'} subtopic={'Board members represent the interests of hotel owners and operators in Ado Odo Ota, advocating on their behalf with local government and other stakeholders.'}/>
-            <LiComponent topic={'Membership Development'} subtopic={'The BOT supports initiatives aimed at increasing membership and strengthening the association’s influence in the industry.'}/>
+            <LiComponent topic={'Legal and Ethic Oversight'} subtopic={'The Elders Forum ensures that the association operates within the confines of the law and adheres to high ethical standards in all of its activities.'} />
+            <LiComponent topic={'Long-term Planning'} subtopic={'The Elders Forum helps with the long-term planning and sustainability of the association, ensuring its growth and impact in the future.'}/>
+            <LiComponent topic={'Representation'} subtopic={'Elders Forum members represent the interests of hotel owners and operators in Ado Odo Ota, advocating on their behalf with local government and other stakeholders.'}/>
+            <LiComponent topic={'Membership Development'} subtopic={'The Elders Forum supports initiatives aimed at increasing membership and strengthening the association’s influence in the industry.'}/>
             <LiComponent topic={'Project Execution'} subtopic={'The Executives oversee community outreach programs, training initiatives, safety collaborations, and industry partnerships.'}/>
-            <LiComponent topic={'Finicial Management'} subtopic={'They manage the financial affairs of the association, including budget planning, fundraising, and expenditure control, subject to oversight from the BOT.'}/>
-            <LiComponent topic={'Compliance And Discipline'} subtopic={'They ensure that members comply with association rules and handle disciplinary actions in line with the constitution and in consultation with the BOT.'}/>
+            <LiComponent topic={'Finicial Management'} subtopic={'They manage the financial affairs of the association, including budget planning, fundraising, and expenditure control, subject to oversight from the Elders Forum.'}/>
+            <LiComponent topic={'Compliance And Discipline'} subtopic={'They ensure that members comply with association rules and handle disciplinary actions in line with the constitution and in consultation with the Elders Forum.'}/>
             <LiComponent topic={'Representation'} subtopic={'The Executives represent the association at external functions, liaising with government agencies, law enforcement, and tourism bodies on behalf of members.'}/>
           </div>
 
