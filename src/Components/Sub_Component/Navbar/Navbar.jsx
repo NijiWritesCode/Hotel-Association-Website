@@ -28,6 +28,7 @@ const Navbar = () => {
     { to: '/leadership', name: 'Leadership' },
     { to: '/membership', name: 'Membership' },
     { to: '/contact', name: 'Contact' },
+    { to: '/jobs', name: 'Jobs' },
   ];
 
   return (

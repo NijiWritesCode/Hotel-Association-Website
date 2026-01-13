@@ -1,0 +1,94 @@
+/* =========================
+   PAGE WRAPPER
+========================= */
+.jobs-page {
+  min-height: 100vh;
+  background: #f5f7fc;
+  display: flex;
+  flex-direction: column;
+  padding-top: 88px;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
+.jobs-hero {
+  padding: 72px 24px 56px;
+  text-align: center;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 60%);
+  color: #ffffff;
+}
+
+.jobs-hero h1 {
+  font-size: clamp(28px, 3vw, 36px);
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: -0.3px;
+}
+
+.jobs-hero p {
+  font-size: 16px;
+  max-width: 760px;
+  margin: 0 auto;
+  line-height: 1.7;
+  opacity: 0.96;
+  color: white;
+}
+
+/* =========================
+   JOB LISTINGS GRID
+========================= */
+.jobs-listings {
+  max-width: 1240px;
+  margin: 48px auto 96px;
+  padding: 0 24px;
+
+  display: grid;
+  grid-template-columns: repeat(3, minmax(280px, 1fr));
+  gap: 32px;
+}
+
+/* =========================
+   STATES
+========================= */
+.jobs-listings p {
+  grid-column: 1 / -1;
+  text-align: center;
+  font-size: 15px;
+  color: #475569;
+}
+
+.jobs-listings .error {
+  color: #b91c1c;
+  font-weight: 500;
+}
+
+/* =========================
+   RESPONSIVE BREAKPOINTS
+========================= */
+@media (max-width: 1024px) {
+  .jobs-listings {
+    grid-template-columns: repeat(2, minmax(260px, 1fr));
+    gap: 28px;
+  }
+}
+
+@media (max-width: 640px) {
+  .jobs-hero {
+    padding: 56px 20px 44px;
+  }
+
+  .jobs-hero h1 {
+    font-size: 26px;
+  }
+
+  .jobs-hero p {
+    font-size: 14px;
+  }
+
+  .jobs-listings {
+    grid-template-columns: 1fr;
+    margin: 36px auto 72px;
+    padding: 0 16px;
+  }
+}

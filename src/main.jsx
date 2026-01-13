@@ -8,6 +8,7 @@ import Events from './Components/Events/Events.jsx'
 import Leadership from './Components/Leadership/Leadership.jsx'
 import Membership from './Components/Membership/Membership.jsx'
 import Contact from './Components/Contact/Contact.jsx'
+import Jobs from './Components/HotelJobs/Jobs.jsx'
 
 const router = createBrowserRouter([
   {
@@ -38,6 +39,10 @@ const router = createBrowserRouter([
   {
     path : '/contact',
     element : <Contact />
+  },
+  {
+    path: '/jobs',
+    element: <Jobs />
   }
 ])
 
